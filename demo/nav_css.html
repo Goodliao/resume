@@ -1,0 +1,143 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #menu {
+            width: 50px;
+            height: 50px;
+            margin: 200px auto;
+            position: relative;
+        }
+        
+        #menu_list {
+            height: 42px;
+            width: 42px;
+            position: relative;
+            margin: 4px;
+            list-style: none;
+        }
+        
+        #menu_list li {
+            border-radius: 21px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            margin: 5px;
+            width: 30px;
+            height: 30px;
+            background-color: cadetblue;
+            line-height: 30px;
+            text-align: center;
+            z-index: 1;
+        }
+        
+        #menu_list li a {
+            font-size: 18px;
+            text-decoration: none;
+            color: #000;
+        }
+        
+        #home {
+            width: 50px;
+            height: 50px;
+            background: brown;
+            position: absolute;
+            left: 0;
+            top: 0;
+            transition: 1s;
+            z-index: 2;
+            cursor: pointer;
+            text-align: center;
+            line-height: 50px;
+            color: #000;
+            font-size: 18px;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var oHome = document.getElementById('home');
+            var aLi = document.getElementsByTagName('li');
+            var oBtn = true;
+            var iR = -100;
+            for (var i = 0; i < aLi.length; i++) {
+                aLi[i].onclick = function () {
+                    this.style.transition = '0.2s';
+                    this.style.transform = "scale(2)";
+                    this.style.opacity = 0.4;
+                    addEnd(this, endFn);
+                }
+            }
+
+            function endFn() {
+                this.style.transition = '0.2s';
+                this.style.transform = "scale(1)";
+                this.style.opacity = 1;
+                removeEnd(this, endFn);
+            }
+            oHome.onclick = function () {
+                if (oBtn) {
+                    this.style.transform = 'rotate(-360deg)';
+                    for (var i = 0; i < aLi.length; i++) {
+                        var oLT = getLT(iR, 90 / 4 * i);
+                        aLi[i].style.transition = '1s ' + i * 100 + 'ms';
+                        aLi[i].style.left = oLT.l + 'px';
+                        aLi[i].style.top = oLT.t + 'px';
+
+                        aLi[i].style.transform = 'scale(1) rotate(-720deg)';
+                    }
+                } else {
+                    this.style.transform = 'rotate(0deg)';
+                    for (var i = 0; i < aLi.length; i++) {
+                        aLi[i].style.transition = '1s ' + (aLi.length - i - 1) * 100 + 'ms';
+                        aLi[i].style.left = 0 + 'px';
+                        aLi[i].style.top = 0 + 'px';
+
+                        aLi[i].style.transform = 'scale(1) rotate(0deg)';
+                    }
+                }
+                oBtn = !oBtn;
+            };
+
+            function getLT(iR, iDeg) {
+                var left = Math.round(Math.sin(iDeg / 180 * Math.PI) * iR);
+                var top = Math.round(Math.cos(iDeg / 180 * Math.PI) * iR);
+                return {
+                    l: left,
+                    t: top
+                };
+            }
+
+            function addEnd(obj, fn) {
+                obj.addEventListener('WebkitTransitionEnd', fn, false);
+                obj.addEventListener('transitionend', fn, false);
+            }
+
+            function removeEnd(obj, fn) {
+                obj.removeEventListener('WebkitTransitionEnd', fn, false);
+                obj.removeEventListener('transitionend', fn, false);
+            }
+
+        }
+    </script>
+</head>
+
+<body>
+    <div id="menu">
+        <div id="home">home</div>
+        <ul id="menu_list">
+            <li><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+            <li><a href="#">6</a></li>
+        </ul>
+    </div>
+
+</body>
+
+</html>

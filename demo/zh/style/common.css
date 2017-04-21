@@ -1,0 +1,239 @@
+@charset "utf-8";
+*{margin: 0;padding: 0;}
+ul,ol{list-style: none;}
+img{vertical-align: top; border: none;}
+
+body,html{
+    height: 100%;
+    overflow-y: hidden;
+}
+.photo{
+    height: 100%;
+    overflow: hidden;
+}
+body{
+    background-color: #000;
+}
+.img_box{
+    width: 94%;
+    margin: 10px auto;
+    position: relative;
+    text-align: center;
+    overflow: hidden;
+}
+.img_box img{
+    position: relative;
+    opacity: 0;
+/*
+    max-width: 100%;
+    max-height: 100%;
+*/
+}
+.prev,.next{
+    width: 70px;
+    height: 120px;
+    position: absolute;
+    top: 50%;
+    margin-top: -60px;
+    background-repeat: no-repeat;
+    background-image: url(../images/dir.png);
+}
+.prev{
+    left: 0; 
+    background-position: 0 0;
+}
+.next{
+    right: 0;
+    background-position: 0 -120px;
+}
+
+/*缩略图*/
+.sm_img_box{
+    width: 94%;
+    height: 108px;
+    background-color: #363636;
+    position: absolute; 
+    left: 3%;
+    bottom: 0;
+/*   bottom: -108px;*/
+    z-index: 2;
+}
+.sm_prev,.sm_next{
+    width: 34px;
+    background-color: #ccc;
+    height: 100%;
+}
+.sm_prev{
+    float: left;
+}
+.sm_next{
+    float: right;
+}
+.sm_img_list{
+    margin: 0 54px;
+    position: relative;
+    height: 100%;
+    overflow: hidden;
+}
+.sm_img_list ul{
+    position: absolute;
+    left: 0; top: 0;
+    padding: 18px;
+    transition: .35s ease-in-out;
+}
+.sm_img_list li{
+    float: left;
+    width: 100px;
+    height: 75px;
+    margin-right: 18px;
+    position: relative;
+}
+.sm_img_list i{
+    position: absolute;
+    left: 0; top: 0;
+    border: solid 3px #f47676;
+    width: 94px;
+    height: 69px;
+    display: none;
+}
+.sm_img_list img{
+    width: 100%;
+    height: 100%;
+}
+.sm_img_list .active i{
+    display: block;
+}
+.hide_btn{
+    padding: 0 15px;
+    height: 25px;
+    left: 34px;
+    position: absolute;
+    top: -25px;
+    font-size: 14px;
+    color: #ccc;
+    background-color: #434343;
+    font-family: "Microsoft YaHei","微软雅黑";
+    line-height: 25px;
+    text-decoration: none;
+}
+.img_info{
+    position: absolute;
+    left: 176px;
+    top: -2.8em;
+    font-size: 12px;
+    line-height: 1.4;
+    color: #FFF;
+}
+
+.loading{
+    position: absolute;
+    left: 50%; top: 50%;
+    width: 200px;
+    height: 40px;
+    background-color: rgba(0,0,0,.6);
+    color: #FFF;
+    line-height: 40px;
+    text-align: center;
+    margin-left: -100px;
+    margin-top: -20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
